@@ -1,0 +1,2 @@
+C:\KMU\2-1\CPP\예제\3-2\Project1\x64\Debug\Project1.exe
+C:\KMU\2-1\CPP\예제\자료형\x64\Debug\Project1.exe

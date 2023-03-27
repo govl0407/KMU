@@ -1,0 +1,5 @@
+﻿  언더플로우.cpp
+C:\KMU\2-1\CPP\예제\3-2\언더플로우\언더플로우.cpp(5,26): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+C:\KMU\2-1\CPP\예제\3-2\언더플로우\언더플로우.cpp(6,26): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+C:\KMU\2-1\CPP\예제\3-2\언더플로우\언더플로우.cpp(7,26): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  언더플로우.vcxproj -> C:\KMU\2-1\CPP\예제\3-2\언더플로우\x64\Debug\언더플로우.exe
