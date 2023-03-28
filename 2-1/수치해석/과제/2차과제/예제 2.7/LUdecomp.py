@@ -16,8 +16,3 @@ def LUsolve(a,b):
     for k in range(n-2,-1,-1):
         b[k] = (b[k]- np.dot(a[k,k+1:n],b[k+1:n]))/a[k,k]
     return b
-
-a = np.array([[ 3.0, -1.0, 4.0], [-2.0, 0.0, 5.0], [ 7.0, 2.0, -2.0]])
-b = np.array([[ 6.0, 3.0, 7.0], [-4.0, 2.0, -5.0]])
-a = LUdecomp(a) # Decompose [a]//lu 분해
-print(a)
