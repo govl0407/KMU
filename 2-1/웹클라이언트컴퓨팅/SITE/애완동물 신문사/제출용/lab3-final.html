@@ -3,8 +3,14 @@
 <head>
 	<meta charset="UTF-8">
 	<title>애완동물 신문사</title>
-  <style>
-	  section{
+<style>
+		div{
+			margin: 0 auto;
+			
+  			display: flex;
+  			justify-content: center;
+		}
+		section{
 			float:left;
 			width:800px;
 			margin: 0 auto;	
@@ -61,6 +67,7 @@
 </style>
 </head>
 <body>
+<div>
 <section>
   <h2>애완동물 신문사</h2>
   <nav>
@@ -91,12 +98,12 @@
   <footer>
 		<p>애완동물 신문사 소개 및 연락처</p>
 	</footer>
- </section>
+</section>
 </div>
 <script>
 	var jump = document.querySelector('#jump');
 	jump.onclick = function() {
-  window.open("lab3-reporter-final.html","","width=800,height=700,left=30,top=200");
+  window.open("lab3-reporter-final.html","","width=700,height=700,left=30,top=200");
 	}
 </script>
 </body>

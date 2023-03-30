@@ -16,7 +16,7 @@ int isEmpty(StackType *S)
 }
 int isFull(StackType* S)
 {
-    return S->top == N - 1;
+    return (S->top == N - 1);
 }
 
 void push(StackType* S, char c)
