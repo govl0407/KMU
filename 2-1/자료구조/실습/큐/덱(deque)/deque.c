@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
-#define N 100
+
+#define N 10
 
 typedef char element;
 
@@ -10,123 +12,167 @@ typedef struct
 {
     element data[N];
     int front, rear;
+}DequeType;
 
-}QueueType;
-
-void init(QueueType* Q)
+void init(DequeType* D)
 {
-    Q->front = Q->rear = 0;
+    D->front = D->rear = 0;
+}
+//////////////////////////////// 
+int isFull(DequeType* D)
+{
+    return  D->front % N == (D->rear + 1) % N;
 }
 
-int isFull(QueueType* Q)
-{
-    return  Q->front % N == (Q->rear + 1) % N;
-}
-
-int isEmpty(QueueType* Q)
+int isEmpty(DequeType* Q)
 {
     return Q->front == Q->rear;
 }
 
 
 
-
-void add_rear(QueueType* Q, element e)
+////////////////////////////// 삽입연산
+void add_front(DequeType* D, element e)
 {
-    if (isFull(Q))
+    if (isFull(D))
+        printf("FULL\n");
+    else if(D->front!=0)
+    {
+        D->front = (D->front - 1) % N;
+        D->data[D->front] = e;
+    }
+    else {
+
+        D->front = N-1;
+        D->data[D->front] = e;
+    }
+}
+void add_rear(DequeType* D, element e)
+{
+    if (isFull(D))
         printf("FULL\n");
     else
     {
-        Q->rear = (Q->rear + 1) % N;
-        Q->data[Q->rear] = e;
-    }
-}
-void add_front(QueueType* Q, element e)
-{
-    if (isFull(Q))
-        printf("FULL\n");
-    else if(Q->front ==0)
-    {
-        Q->front = N-1;
-        Q->data[Q->front] = e;
-    }
-    else
-    {
-        Q->front = (Q->front - 1) % N;
-        Q->data[Q->front] = e;
+        D->rear = (D->rear + 1) % N;
+        D->data[D->rear] = e;
     }
 }
 
 
-element delete_front(QueueType* Q)
+
+////////////////////////////////////// 삭제연산
+element delete_front(DequeType* D)
 {
-    if (isEmpty(Q))
+    if (isEmpty(D))
     {
-        printf("EMPFTY\n");
+        printf("EMPTY\n");
         return 0;
     }
-    Q->front = (Q->front + 1) % N;
-    return Q->data[Q->front];
+    D->front = (D->front + 1) % N;
+    return D->data[D->front];
 }
-element delete_rear(QueueType* Q)
+element delete_rear(DequeType* D)
 {
-    if (isEmpty(Q))
+    if (isEmpty(D))
     {
-        printf("EMPFTY\n");
+        printf("EMPTY\n");
         return 0;
     }
-    Q->front = (Q->rear - 1) % N;
-    return Q->data[Q->rear];
+    int pos = D->rear;
+    D->rear = (D->rear - 1 + N) % N;
+    return D->data[pos];
+
 }
 
 
-
-element get_front(QueueType* Q)
+/////////////////////////////////////// GET
+element get_front(DequeType* D)
 {
-    if (isEmpty(Q))
+    if (isEmpty(D))
     {
-        printf("EMPFTY\n");
+        printf("EMPTY\n");
         return 0;
     }
-    return Q->data[(Q->front + 1) % N];
+    return D->data[(D->front + 1) % N];
 }
-element get_rear(QueueType* Q)
+element get_rear(DequeType* D)
 {
-    if (isEmpty(Q))
+    if (isEmpty(D))
     {
-        printf("EMPFTY\n");
+        printf("EMPTY\n");
         return 0;
     }
-    return Q->data[(Q->rear + 1) % N];
+    return D->data[(D->rear)];
 }
 
 
 
 
-void print(QueueType* Q)
+void print(DequeType* D)
 {
-    int i = Q->front;
-    while (i != Q->rear)
+    int i = D->front;
+    while (i != D->rear)
     {
+        
+        printf("[%c] ", D->data[i]);
         i = (i + 1) % N;
-        printf("[%c] ", Q->data[i]);
-
     }
-    printf("front : %d / rear : %d", Q->front, Q->rear);
+    printf("front : %d / rear : %d", D->front, D->rear);
     printf("\n");
 }
+
+
+int getCount(DequeType* D)
+{
+    int count = D->rear - D->front;
+    if (count < 0)
+        count += N;
+
+    return count;
+}
+
 int main()
 {
-    QueueType Q;
-    init(&Q);
+    DequeType D;
+    init(&D);
 
     srand(time(NULL));
 
     for (int i = 0; i < 7; i++)
     {
-        enqueue(&Q, rand() % 26 + 65);
+        add_rear(&D, rand() % 26 + 65);
     }
-    
+    print(&D);
 
+    //printf("front rear");
+    element a = 'A';
+    printf("%c", get_rear(&D));
+
+
+
+
+
+    //////////////////// 회문 판독
+    /*
+    char str[N];
+    scanf("%s", str);
+    for (int i = 0; i < strlen(str); i++)
+    {
+        addRear(&D, str[i]);
+    }
+    int equal = 1; //flag
+
+    while (getCount(&D) > 1 && equal == 1)
+    {
+        char first = deleteFront(&D);
+        char last = deleteRear(&D);
+        if (first != last)
+            equal = 0;
+    }
+    if (equal == 1)
+        printf("yes");
+    else
+        printf("no");
+    */
     return 0;
 }

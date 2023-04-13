@@ -1,12 +1,11 @@
 /*
-숫자의 모든 자리수 반복 곱하기 by 20203152 최정민 -23.04.05 doing
-곱한 값이 int 범위를 벗어나는 문제
+숫자의 모든 자리수 반복 곱하기 by 20203152 최정민 -23.04.05 
 */
 #include<iostream>
 using namespace std;
-void multiple(int n)
+void multiple(unsigned long long int n)
 {
-    int num = n;
+    unsigned long long int num = n;
     unsigned long long int k = 1;
     if(num%10!=0)
         k = num%10;
@@ -21,8 +20,11 @@ void multiple(int n)
     int z = num % 10;
     if (z != 0)
         k *= z;
-    if (k > 10)
+    if (k >= 10)
+    {
         multiple(k);
+
+    }
     else
         cout << k << endl;
 }
@@ -32,7 +34,7 @@ int main()
     cin >> cases;
     for (int i = 0; i < cases; i++)
     {
-        int num;
+        unsigned long long int num;
         cin >> num;
         multiple(num);
     }
