@@ -72,27 +72,21 @@ void insert(ListType* L, int pos, element e)
 
 
 ////////////////////delete
-void deleteFirst(ListType* L)
+element deleteFirst(ListType* L)
 {
     if (L->size == 0)
+    {
         printf("Empty");
-    else if(L->size == 1)
-    {
-
-        ListNode* p = L->head;
-        L->head = NULL;
-
-        L->size--;
+        return -1;
     }
-    else
-    {
-        ListNode* p = L->head;
-        L->head = p->next;
-
-        L->size--;
-    }
+    ListNode* p = L->head;
+    element e = p->data;
+    L->head = p->next;
+    free(p);
+    L->size--;
+    return e;
 }
-void deleteLast(ListType* L)
+element deleteLast(ListType* L)//수정 필요
 {
     if (L->size == 0)
         printf("Empty");
@@ -116,35 +110,40 @@ void deleteLast(ListType* L)
     }
 }
 
-void delete(ListType* L, int pos)
+element delete(ListType* L, int pos)
 {
-    if (pos > L->size)
-        printf("wrong pos");
-    else if(pos == L->size && L->size ==1)
+    if (L->size == 0)
     {
-        ListNode* p = L->head;
-        L->head = NULL;
-        L->size--;
+        printf("empty\n");
+        return -1;
     }
-    else if (pos == 1)
+    if (pos > L->size|| pos<1)
     {
-        ListNode* p = L->head;
-        L->head = p->next;
-
-        L->size--;
-
+        printf("wrong pos");
+        return -1;
     }
     else
     {
         ListNode* p = L->head;
-
-        for (int i = 1; i<pos-1; i++)
-            p = p->next;
-
-        
-       
-        p->next = p->next->next;
-        L->size--;
+        ListNode* q = L->head;
+        element e;
+        if (pos == 1)
+        {
+            e = deleteFirst(L);
+        }
+        else
+        {
+            for (int i = 1; i < pos; i++)
+            {
+                q = p;
+                p = p->next;
+            }
+            e = p->data;
+            q->next = p->next;
+            free(p);
+            L->size--;
+            return e;
+        }
     }
 }
 
@@ -158,7 +157,24 @@ void print(ListType* L)
     }
     printf("\n");
 }
+///////////////////////////////리스트 자르기
 
+
+
+
+
+
+
+
+//////////////////////////////////두개의 리스트 연결
+
+
+
+
+
+
+
+///////////////메인
 int main()
 {
     ListType L;
@@ -172,11 +188,8 @@ int main()
     insertLast(&L, 'F'); print(&L);
     insertLast(&L, 'G'); print(&L);
 
-    
-    deleteFirst(&L); print(&L);
-    deleteLast(&L); print(&L);
-    delete(&L,3); print(&L);
-
+    printf("[%c] is deleted \n", deleteFirst(&L)); print(&L);
+    printf("[%c] is deleted \n", delete(&L, 3)); print(&L);
     return 0;
 }
 
