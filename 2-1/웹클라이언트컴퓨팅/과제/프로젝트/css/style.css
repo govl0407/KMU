@@ -206,7 +206,7 @@ button:focus {
 
 #tab1:checked ~ #notice, 
 #tab2:checked ~ #gallery {
-  display:block;
+  display:block;/*탭을 선택하면 그 탭의 내용을 보이게함*/
 }
 
 /* 퀵 링크 */ 

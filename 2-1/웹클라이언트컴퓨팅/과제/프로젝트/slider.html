@@ -7,17 +7,18 @@
                 position: relative;
                 width: 460px;
                 height: 300px;
-                overflow: hidden;
+                overflow: hidden;/*박스를 넘어가면 안보임*/
             }
             .images {
                 position: absolute;
                 width: 2300px;
                 left:0px;
                 transition: all 2s ease-in-out;  /* 나타날 때 부드럽게 트랜지션 추가 */
+                
             }
             /*.images:hover {
-                /*animation: slide 2s 1 alternate forwards;  /* 애니메이션 지정 */ 
-            /*    transform: translateX(-1840px);
+                animation: slide 2s 1 alternate forwards;  /* 애니메이션 지정 */ 
+            /*    transform: translateX(-1840px); /* 이렇게 하면 이동함
             }*/
             @keyframes slide { /* slide 애니메이션 정의 */
 			/*from {
@@ -48,7 +49,8 @@
                 padding: 0px;
                 width: 460px;
                 height: 300px;
-                background-size:cover;                display: block;
+                background-size:cover;                
+                display: block;
                 float: left;
             }
     </style>
@@ -73,7 +75,8 @@
 	images.onmouseover = function() {
         images.style.transform="translateX(-1840px)";
         //images.style.animation="slide2 2s forwards";
-	}  
+        //images.stlye.left="-920*2px";
+    }  
 	images.onmouseout = function() {
         images.style.transform="translateX(-920px)";
         //images.style.animation="slide 2s forwards";
