@@ -53,8 +53,8 @@ void add_rear(DequeType* D, element e)
         printf("FULL\n");
     else
     {
-        D->rear = (D->rear + 1) % N;
         D->data[D->rear] = e;
+        D->rear = (D->rear + 1) % N;
     }
 }
 
@@ -68,8 +68,9 @@ element delete_front(DequeType* D)
         printf("EMPTY\n");
         return 0;
     }
+    element d = D->data[D->front];
     D->front = (D->front + 1) % N;
-    return D->data[D->front];
+    return d;
 }
 element delete_rear(DequeType* D)
 {
@@ -78,9 +79,11 @@ element delete_rear(DequeType* D)
         printf("EMPTY\n");
         return 0;
     }
-    int pos = D->rear;
+    
+    int pos = D->rear-1;
+    element d = D->data[pos];
     D->rear = (D->rear - 1 + N) % N;
-    return D->data[pos];
+    return d;
 
 }
 
@@ -102,7 +105,7 @@ element get_rear(DequeType* D)
         printf("EMPTY\n");
         return 0;
     }
-    return D->data[(D->rear)];
+    return D->data[(D->rear)-1];
 }
 
 
@@ -136,19 +139,15 @@ int main()
     DequeType D;
     init(&D);
 
-    srand(time(NULL));
+    add_front(&D, 'c'); print(&D);
+    add_front(&D, 'b'); print(&D);
+    add_front(&D, 'a'); print(&D);
+    add_rear(&D, 'A');  print(&D);
+    add_rear(&D, 'B');  print(&D);
+    add_rear(&D, 'C');  print(&D);
 
-    for (int i = 0; i < 7; i++)
-    {
-        add_rear(&D, rand() % 26 + 65);
-    }
-    print(&D);
-
-    //printf("front rear");
-    element a = 'A';
-    printf("%c", get_rear(&D));
-
-
+    printf("%c is deleted ", delete_front(&D)); print(&D);
+    printf("%c is deleted ", delete_rear(&D)); print(&D);
 
 
 

@@ -88,12 +88,18 @@ element deleteFirst(ListType* L)
 }
 element deleteLast(ListType* L)//수정 필요
 {
+    element e;
     if (L->size == 0)
+    {
         printf("Empty");
+        e = -1;
+    }
+       
     else if (L->size == 1)
     {
 
         ListNode* p = L->head;
+        e = p->next->data;
         L->head = NULL;
 
         L->size--;
@@ -104,10 +110,11 @@ element deleteLast(ListType* L)//수정 필요
 
         for (int i = 1; i < L->size - 1; i++)
             p = p->next;
-
+        e = p->next->data;
         p->next = NULL;
         L->size--;
     }
+    return e;
 }
 
 element delete(ListType* L, int pos)
@@ -120,7 +127,7 @@ element delete(ListType* L, int pos)
     if (pos > L->size|| pos<1)
     {
         printf("wrong pos");
-        return -1;
+        return -1;   
     }
     else
     {
@@ -158,7 +165,14 @@ void print(ListType* L)
     printf("\n");
 }
 ///////////////////////////////리스트 자르기
-
+ListType slice(ListType* L, int f, int l)
+{
+    ListType NL;
+    init(&NL);
+    for (int i = f; i <= l; i++)
+        insertLast(&NL, delete(L, f));//pos가 왜 맘대로 4로 바뀌는가
+    return NL;
+}
 
 
 
@@ -167,7 +181,28 @@ void print(ListType* L)
 
 
 //////////////////////////////////두개의 리스트 연결
+ListType combine(ListType* L, ListType* M)
+{
+    ListType NL;
+    init(&NL);
+    ListNode* p = L->head;
+    for(int i=0;i<L->size;i++)
+    {
+        insertLast(&NL,p->data);
+        p = p->next;
+    }
 
+    p = M->head;
+    for (int i = 0; i < M->size; i++)
+    {
+        insertLast(&NL, p->data);
+        p = p->next;
+    }
+
+    return NL;
+
+
+}
 
 
 
@@ -187,9 +222,34 @@ int main()
     insertLast(&L, 'E'); print(&L);
     insertLast(&L, 'F'); print(&L);
     insertLast(&L, 'G'); print(&L);
+    insertLast(&L, 'H'); print(&L);
+    insertLast(&L, 'I'); print(&L);
+    insertLast(&L, 'J'); print(&L);
 
     printf("[%c] is deleted \n", deleteFirst(&L)); print(&L);
     printf("[%c] is deleted \n", delete(&L, 3)); print(&L);
+    printf("[%c] is deleted \n", deleteLast(&L)); print(&L);
+    /*
+    ListType M;
+    init(&M);
+
+    insertLast(&M, 'A'); 
+    insertLast(&M, 'B');
+    insertLast(&M, 'C'); 
+    
+    printf("\n M : \n");
+    print(&M);
+    */
+    ListType NL;
+    init(&NL);
+    printf("\n \n NL : ");
+
+    NL = slice(&L, 2, 3);
+    print(&NL);
+    print(&L)
+
+    
+    
     return 0;
 }
 
