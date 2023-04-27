@@ -1,0 +1,161 @@
+1번 코드
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int a, b, c;
+    int median;         // 중간값
+
+    cin >> a >> b >> c;
+
+    if (a < b) {
+        if (c <= a) {
+            median = a;
+        } else if (b <= c) { // a < c, b
+            median = b;
+        } else {
+            median = c;
+        }
+    } else { // b <= a
+        if (c <= b) {
+            median = b;
+        } else { // b <= a / < c
+            if (a <= c) {
+                median = a;
+            } else { 
+                median = c;
+            }
+
+        }
+    }
+
+
+    cout << median << endl;
+
+    return 0;
+}
+
+
+2번 코드
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int numData;
+    int data, last2Digits = 1;
+
+    cin >> numData;
+    for(int i = 0; i < numData; i++)
+    {
+        cin >> data;
+        last2Digits *= data;
+        last2Digits %= 100;
+
+
+
+
+    }
+
+    cout << last2Digits << endl;
+
+    return 0;
+}
+
+
+3번 코드
+
+#include <iostream>
+using namespace std;
+void printDiamond(int size)
+{
+    for (int i = 0; i < size / 2; i++) {
+        for (int j = 0; j < size / 2 - i; j++) cout << "*";
+        for (int j = 0; j < 1 + i * 2; j++) cout << "+";
+        for (int j = 0; j < size / 2 - i; j++) cout << "*";
+        cout << endl;
+    }
+
+    for (int i = size / 2; i > -1; i--) {
+        for (int j = 0; j < size / 2 - i; j++) cout << "*";
+        for (int j = 0; j < 1 + i * 2; j++) cout << "+";
+        for (int j = 0; j < size / 2 - i; j++) cout << "*";
+        cout << endl;
+    }
+}
+
+int main()
+{
+    int size;
+    cin >> size;
+    printDiamond(size);
+    return 0;
+}
+
+
+4번 코드
+
+#include <iostream>
+using namespace std;
+const int SET_SIZE = 101;
+
+int countElementOfUnion( int setA[], int setB[], int sumN[], int sizeA, int sizeB ) 
+{
+    int count = 0;   // 집합 setA, setB의 합집합의 원소의 개수
+
+    int check;
+
+    for (int i = 0; i < sizeA; i++) {
+        check = 1;
+        for (int j = 0; j < count; j++) {
+            if (sumN[j] == setA[i]) {
+                check = 0;
+                break;
+            }
+        }
+        if (check == 1) {
+            sumN[count] = setA[i];
+            count++;
+        }
+
+    }
+
+    for (int i = 0; i < sizeB; i++) {
+        check = 1;
+        for (int j = 0; j < count; j++) {
+            if (sumN[j] == setB[i]) {
+                check = 0;
+                break;
+            }
+        }
+        if (check == 1) {
+            sumN[count] = setB[i];
+            count++;
+        }
+
+    }
+    return count;
+}
+
+int main()
+{
+    int setA[SET_SIZE], setB[SET_SIZE];  // 집합 A, B의 원소를 저장하는 배열
+    int sizeA, sizeB;           // 집합 A, B에 속하는 원소의 개수
+
+    cin >> sizeA;
+    for(int i =0; i<sizeA; i++)
+        cin >> setA[i];
+
+    cin >> sizeB;
+    for(int i =0; i<sizeB; i++)
+        cin >> setB[i];
+
+    int sumN[sizeA + sizeB + 1];
+
+    cout << countElementOfUnion( setA, setB, sumN, sizeA, sizeB ) << endl;
+
+    return 0;
+}

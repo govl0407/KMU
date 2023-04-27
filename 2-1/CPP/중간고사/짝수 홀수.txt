@@ -1,0 +1,28 @@
+/*20203152 최정민 짝수홀수*/
+#include<iostream>
+using namespace std;
+void check()
+{
+    int cases;
+    cin >> cases;
+    int odd = 0;
+    int ord = 0;
+    while (cases--)
+    {
+        int n;
+        cin >> n;
+        if (n % 2 == 0)
+            ord++;
+        else
+            odd++;
+    }
+    cout << odd << " " << ord << endl;
+}
+int main()
+{
+    int cases;
+    cin >> cases;
+    while (cases--)
+        check();
+    return 0;
+}

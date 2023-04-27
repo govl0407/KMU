@@ -1,0 +1,46 @@
+1번파일
+
+1번
+char s[10] = "program";
+
+2번
+bool checkrange(int x)
+{
+    bool b;
+    b = (x >= -100 && x <= 100);
+    return b;
+}
+
+3번
+int decreaseByOne(int x)
+{
+    x--;
+    return x;
+}
+
+4번 
+void increaseByOne(int &x)
+{
+    x++;
+    
+}
+
+5번
+void increaseByTwo(int *x)
+{
+    *x += 2;
+    
+}
+
+6번
+void exchange(int& a, int& b)
+{
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+7번
+2, 4, 5
+
+8번
