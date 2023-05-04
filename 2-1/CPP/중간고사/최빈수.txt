@@ -1,4 +1,4 @@
-/*20203152 최정민 짝수홀수*/
+/*20203152 최정민 최빈수*/
 #include<iostream>
 using namespace std;
 void check()
