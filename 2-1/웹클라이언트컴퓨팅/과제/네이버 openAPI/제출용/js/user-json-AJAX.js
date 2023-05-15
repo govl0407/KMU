@@ -26,6 +26,7 @@ function display(books) {
     string += `<table><tr><th>제목</th><td>${book.title}</td></tr>
                 <tr><th>저자</th><td>${book.author}</td></tr>
                 <tr><th>발행일</th><td>${book.pubdate}</td></tr>
+                <tr></tr>
               </table>`;
   });
   result.innerHTML = string;

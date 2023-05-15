@@ -1,0 +1,29 @@
+﻿  heap.c
+C:\KMU\2-1\자료구조\실습\트리\HEAP\heap.c(72,15): warning C4098: 'deleteItem': 'void' 함수에서 값을 반환하고 있습니다.
+C:\KMU\2-1\자료구조\실습\트리\HEAP\heap.c(78,11): error C2057: 상수 식이 필요합니다.
+C:\KMU\2-1\자료구조\실습\트리\HEAP\heap.c(78,12): error C2466: 상수 크기 0의 배열을 할당할 수 없습니다.
+C:\KMU\2-1\자료구조\실습\트리\HEAP\heap.c(78,9): error C2133: 'A': 알 수 없는 크기입니다.
+C:\KMU\2-1\자료구조\실습\트리\HEAP\heap.c(80,28): error C2059: 구문 오류: '='
+C:\KMU\2-1\자료구조\실습\트리\HEAP\heap.c(80,36): error C2143: 구문 오류: ';'이(가) ')' 앞에 없습니다.
+C:\KMU\2-1\자료구조\실습\트리\HEAP\heap.c(88,30): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+C:\KMU\2-1\자료구조\실습\트리\HEAP\heap.c(88,30): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+C:\KMU\2-1\자료구조\실습\트리\HEAP\heap.c(88,34): error C2059: 구문 오류: ')'
+C:\KMU\2-1\자료구조\실습\트리\HEAP\heap.c(89,1): error C2054: 'HT' 다음에 '('가 필요합니다.
+C:\KMU\2-1\자료구조\실습\트리\HEAP\heap.c(101,5): error C2275: 'HeapType': 형식 대신 식이 필요합니다.
+C:\KMU\2-1\자료구조\실습\트리\HEAP\heap.c(101,14): error C2146: 구문 오류: ';'이(가) 'H' 식별자 앞에 없습니다.
+C:\KMU\2-1\자료구조\실습\트리\HEAP\heap.c(102,10): warning C4133: '함수': 'int *'과(와) 'HeapType *' 사이의 형식이 호환되지 않습니다.
+C:\KMU\2-1\자료구조\실습\트리\HEAP\heap.c(103,16): warning C4133: '함수': 'int *'과(와) 'HeapType *' 사이의 형식이 호환되지 않습니다.
+C:\KMU\2-1\자료구조\실습\트리\HEAP\heap.c(104,16): warning C4133: '함수': 'int *'과(와) 'HeapType *' 사이의 형식이 호환되지 않습니다.
+C:\KMU\2-1\자료구조\실습\트리\HEAP\heap.c(105,16): warning C4133: '함수': 'int *'과(와) 'HeapType *' 사이의 형식이 호환되지 않습니다.
+C:\KMU\2-1\자료구조\실습\트리\HEAP\heap.c(106,16): warning C4133: '함수': 'int *'과(와) 'HeapType *' 사이의 형식이 호환되지 않습니다.
+C:\KMU\2-1\자료구조\실습\트리\HEAP\heap.c(107,16): warning C4133: '함수': 'int *'과(와) 'HeapType *' 사이의 형식이 호환되지 않습니다.
+C:\KMU\2-1\자료구조\실습\트리\HEAP\heap.c(108,16): warning C4133: '함수': 'int *'과(와) 'HeapType *' 사이의 형식이 호환되지 않습니다.
+C:\KMU\2-1\자료구조\실습\트리\HEAP\heap.c(109,16): warning C4133: '함수': 'int *'과(와) 'HeapType *' 사이의 형식이 호환되지 않습니다.
+C:\KMU\2-1\자료구조\실습\트리\HEAP\heap.c(110,16): warning C4133: '함수': 'int *'과(와) 'HeapType *' 사이의 형식이 호환되지 않습니다.
+C:\KMU\2-1\자료구조\실습\트리\HEAP\heap.c(111,16): warning C4133: '함수': 'int *'과(와) 'HeapType *' 사이의 형식이 호환되지 않습니다.
+C:\KMU\2-1\자료구조\실습\트리\HEAP\heap.c(112,16): warning C4133: '함수': 'int *'과(와) 'HeapType *' 사이의 형식이 호환되지 않습니다.
+C:\KMU\2-1\자료구조\실습\트리\HEAP\heap.c(113,15): warning C4133: '함수': 'int *'과(와) 'HeapType *' 사이의 형식이 호환되지 않습니다.
+C:\KMU\2-1\자료구조\실습\트리\HEAP\heap.c(116,16): warning C4133: '함수': 'int *'과(와) 'HeapType *' 사이의 형식이 호환되지 않습니다.
+C:\KMU\2-1\자료구조\실습\트리\HEAP\heap.c(116,31): warning C4133: '함수': 'int *'과(와) 'HeapType *' 사이의 형식이 호환되지 않습니다.
+C:\KMU\2-1\자료구조\실습\트리\HEAP\heap.c(117,5): warning C4013: 'inPlaceHeapSort'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\KMU\2-1\자료구조\실습\트리\HEAP\heap.c(118,15): warning C4133: '함수': 'int *'과(와) 'HeapType *' 사이의 형식이 호환되지 않습니다.
