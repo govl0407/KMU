@@ -1,10 +1,11 @@
-﻿#include <fstream>
+﻿//복소수 by 20203152 최정민 23.05.21
+#include <fstream>
 #include <cstdlib>
 #include "MyComplex.h"
 
-using namespace std;
 void testSimpleCase();
 void testDataFromFile();
+
 int main()
 {
     testSimpleCase();
@@ -48,12 +49,10 @@ void testSimpleCase()
     cout << c7 << endl << c8 << endl << c9 << endl;
     // test comparison operators
     cout << (c8 != c9) << " " << (c8 == c9) << endl;
-    cout << (c8 > c9) << " " << (c8 >= c9) << " " << (c8 < c9) << " " << (c8 <=
-        c9) << endl;
+    cout << (c8 > c9) << " " << (c8 >= c9) << " " << (c8 < c9) << " " << (c8 <= c9) << endl;
     c7 = c8 = c9;
     cout << (c8 != c9) << " " << (c8 == c9) << endl;
-    cout << (c8 > c9) << " " << (c8 >= c9) << " " << (c8 < c9) << " " << (c8 <=
-        c9) << endl;
+    cout << (c8 > c9) << " " << (c8 >= c9) << " " << (c8 < c9) << " " << (c8 <= c9) << endl;
     // test prefix operators
     c7 = -myComplex(2, 3);
     c8 = (++c7) * 2;
@@ -82,22 +81,30 @@ void testDataFromFile()
         cerr << "Input file opening failed.\n";
         exit(1);
     }
-    inStream >> numTestCases;
+    inStream >> numTestCases; // 파일 입출력
+    //cin >> numTestCases; // 직접 입력
+    //while(1)
     for (int i = 0; i < numTestCases; i++)
     {
+
         myComplex c1, c2, c3, c4;
         myComplex c5, c6, c7, c8, c9;
-        inStream >> c1 >> c2 >> c3 >> c4;
+        inStream >> c1 >> c2 >> c3 >> c4;//파일입출력
+        /*
+        c1 = myComplex(rand_int(), rand_int());
+        c2 = myComplex(rand_int(), rand_int());
+        c3 = myComplex(rand_int(), rand_int());
+        c4 = myComplex(rand_int(), rand_int()); // 랜덤
+        */
+        //cin >> c1 >> c2 >> c3 >> c4; // 직접 입력
+        //cout << "-----------------------" << endl;
         cout << c1 << " " << c2 << " " << c3 << " " << c4 << endl;
-        cout << (2 + c1 + 3) + (2 - c2 - 3) * (2 * c3 * 3) - (2 * c4 - 3) <<
-            endl;
+        cout << (2 + c1 + 3) + (2 - c2 - 3) * (2 * c3 * 3) - (2 * c4 - 3) << endl;
         c5 = c6 = c7 = c8 = c1;
         cout << (c5 == c2) << " " << (c5 != c2) << endl;
-        cout << (c5 > c2) << " " << (c5 >= c2) << " " << (c5 < c2) << " " <<
-            (c5 <= c2) << endl;
+        cout << (c5 > c2) << " " << (c5 >= c2) << " " << (c5 < c2) << " " << (c5 <= c2) << endl;
         cout << (c5 == c6) << " " << (c5 != c6) << endl;
-        cout << (c5 > c6) << " " << (c5 >= c6) << " " << (c5 < c6) << " " <<
-            (c5 <= c6) << endl;
+        cout << (c5 > c6) << " " << (c5 >= c6) << " " << (c5 < c6) << " " << (c5 <= c6) << endl;
         c5 += c2;
         c6 -= c3;
         c7 *= c4;
