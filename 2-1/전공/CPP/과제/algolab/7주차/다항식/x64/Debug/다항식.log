@@ -1,0 +1,5 @@
+﻿  MyPolynomial.cpp
+C:\KMU\2-1\CPP\과제\algolab\7주차\다항식\MyPolynomial.cpp(246,32): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  TestMyPolynomial.cpp
+  코드를 생성하고 있습니다...
+  다항식.vcxproj -> C:\KMU\2-1\CPP\과제\algolab\7주차\다항식\x64\Debug\다항식.exe
