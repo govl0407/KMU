@@ -1,0 +1,48 @@
+#include <iostream> 
+using namespace std;
+#define N 1000
+
+void cal()
+{
+    int A[N];
+    int d;//원소 개수
+    cin >> d;
+    for (int i = 0; i < d; i++)//배열에 넣기
+    {
+        int n;
+        cin >> n;
+        A[i] = n;
+    }
+    int k;//주기
+    cin >> k;
+    int M = 0;//만들어진 수열 수
+    for (int i = 0; i + k <= d; i++)
+        M++;
+    cout << M << " ";
+    for (int i = 0; i + k <= d; i++) 
+    {
+        int result = 0;
+        int x = i;
+        for(int j=0;j<k;j++)
+        {
+            
+            result += A[x];
+            x++;
+        }
+        cout << (result / k) << " ";
+    }
+    cout << endl;
+       
+}
+
+int main()
+{
+    int testcases;
+    cin >> testcases;
+    while (testcases--)
+    {
+        cal();
+    }
+
+    return 0;
+}

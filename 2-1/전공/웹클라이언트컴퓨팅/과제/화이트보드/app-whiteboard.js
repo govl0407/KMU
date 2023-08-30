@@ -13,4 +13,7 @@ io.on('connection', (socket) => {
     socket.on('line', (data) => {
         io.sockets.emit('line', data);
     });
+    //socket.on('chat', (data) => {
+    //    io.sockets.emit('line', data);
+    //});
 });

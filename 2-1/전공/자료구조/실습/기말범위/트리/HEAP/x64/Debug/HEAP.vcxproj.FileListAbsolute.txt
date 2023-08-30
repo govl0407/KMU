@@ -1,1 +1,2 @@
 C:\KMU\2-1\자료구조\실습\트리\HEAP\x64\Debug\HEAP.exe
+C:\KMU\2-1\전공\자료구조\실습\기말범위\트리\HEAP\x64\Debug\HEAP.exe

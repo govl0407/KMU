@@ -1,0 +1,67 @@
+#include <iostream> 
+using namespace std;
+#define N 1000
+
+
+void cal()
+{
+    int result = 0;
+    int a, b;
+    cin >> a >> b;
+    char A[100][100];
+    for (int i = 0; i < a; i++)
+    {
+        char c[100];
+        cin >> c;
+        for (int j = 0; j < b; j++)
+        {
+            A[i][j] = c[j];
+        }
+    }
+    //세로검사
+    int flag = 0;
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b / 2; j++)
+        {
+            if (A[i][j] != A[i][b - 1 - j])
+            {
+                flag = 1;
+                break;
+            }
+        }
+        if (flag)
+            break;
+    }
+    if (!flag)
+        result += 2;
+    //가로
+    flag = 0;
+    for (int j = 0; j < b; j++)
+    {
+        for (int i = 0; i < a / 2; i++)
+        {
+            if (A[i][j] != A[a-1-i][j])
+            {
+                flag = 1;
+                break;
+            }
+        }
+        if (flag)
+            break;
+    }
+    if (!flag)
+        result += 1;
+    cout << result << endl;
+}
+int main()
+{
+    int testcases;
+    cin >> testcases;
+    while (testcases--)
+    {
+        cal();
+    }
+
+    return 0;
+}

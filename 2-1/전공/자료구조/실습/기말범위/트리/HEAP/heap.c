@@ -94,6 +94,7 @@ void inPlaceHeapSort(HeapType* HT)//수정필요
         key = deleteItem(HT);
         HT->heap[HT->heapSize + 1] = key;
     }
+    HT->heapSize = n;
 }
 
 int main()
@@ -110,13 +111,13 @@ int main()
     insertItem(&H, 2);
     insertItem(&H, 1);
     insertItem(&H, 3);
-    //heapSort(&H);
-    //printHeap(&H);
+    printHeap(&H);
     //insertItem(&H, 7); printHeap(&H);
 
+    //heapSort(&H);
     //deleteItem(&H); printHeap(&H);
-    //inPlaceHeapSort(&H);
-    //printHeap(&H);
+    inPlaceHeapSort(&H);
+    printHeap(&H);
 
 }
 

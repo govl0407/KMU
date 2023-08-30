@@ -1,0 +1,50 @@
+#include<stdlib.h>
+#include<stdio.h>
+
+typedef struct TreeNode{
+    int key;
+    struct TreeNode* left;
+    struct TreeNode* right;
+}TreeNode;
+
+TreeNode* makeNode(int key)
+{
+    struct TreeNode* node = (struct TreeNode*)malloc(sizeof(struct TreeNode*));
+    node->key = key;
+    node->left = node->right = NULL;
+    return node;
+}
+void insertNode(struct TreeNode* root, int key)
+{
+    struct TreeNode* node = makeNode(key);
+    struct TreeNode* p = root;
+    if (p == NULL) 
+    { 
+        p = node;
+    }
+    else {
+        while (p != NULL)
+        {
+            if (p->key > key) { p = p->left; }//키가 루트보다 작으면왼쪽
+            if (p->key <= key) { p = p->right; }
+            //오른쪽
+        }
+        p = node;
+    }
+}
+
+TreeNode* inserting(TreeNode* root, int A[],int s,int  e) {
+    int mid = s + e / 2;
+    TreeNode* node = makeNode(mid);
+    
+        node->right = makeNode(mid + 1, e);
+        node->left = makeNode(s, mid - 1);
+    
+}
+int main()
+{
+    int A[] = { 1,2,3,4,5,6,7,8,9,10 };
+    struct TreeNode* root = NULL;
+    inserting(root, A, 0, 10);
+    return 0;
+}

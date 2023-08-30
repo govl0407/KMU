@@ -1,0 +1,36 @@
+#include <iostream> 
+using namespace std;
+#define N 1000
+
+void cal()
+{
+    int n;
+    cin >> n;
+    int A[101] = { 0 };
+    for (int i = 0; i < n; i++)
+    {
+        int k;
+        cin >> k;
+        A[k]++;
+    }
+    for (int i = 0; i < 101; i++)
+    {
+        if (A[i] != 0)
+        {
+            cout << i << " " << A[i] << " ";
+        }
+    }
+    cout << endl;
+
+}
+int main()
+{
+    int testcases;
+    cin >> testcases;
+    while (testcases--)
+    {
+        cal();
+    }
+
+    return 0;
+}

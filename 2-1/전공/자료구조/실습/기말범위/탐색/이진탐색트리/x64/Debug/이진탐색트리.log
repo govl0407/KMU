@@ -1,0 +1,5 @@
+﻿  소스.c
+C:\KMU\2-1\전공\자료구조\실습\기말범위\탐색\이진탐색트리\소스.c(5,1): warning C4005: 'max': 매크로 재정의
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\ucrt\stdlib.h(1282,1): message : 'max'의 이전 정의를 참조하십시오.
+C:\KMU\2-1\전공\자료구조\실습\기말범위\탐색\이진탐색트리\소스.c(101,11): warning C4244: '함수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  이진탐색트리.vcxproj -> C:\KMU\2-1\전공\자료구조\실습\기말범위\탐색\이진탐색트리\x64\Debug\이진탐색트리.exe

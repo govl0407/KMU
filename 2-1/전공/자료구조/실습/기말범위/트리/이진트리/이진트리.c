@@ -13,14 +13,6 @@ typedef struct TreeNode
 }TreeNode;
 
 
-TreeNode* makeNode(element key, TreeNode* left, TreeNode* right)
-{
-    TreeNode* node = (TreeNode*)malloc(sizeof(TreeNode));
-    node->key = key;
-    node->left = left;
-    node->right = right;
-    return node;
-}
 //////스택을 이용한 중위 순회
 typedef struct
 {
@@ -50,58 +42,6 @@ TreeNode* pop(StackType* S)
     return e;
 }
 
-void iterOrder(TreeNode* root)
-{
-    StackType S;
-    initStack(&S);
-
-    while (1)
-    {
-        for (; root != NULL; root = root->left)
-            push(&S, root);
-        root = pop(&S);
-
-        if (root == NULL)
-            break;
-
-        printf("[%d] ", root->key);
-
-        root = root->right;
-    }
-}
-
-//////////전후 순회
-void preOrder(TreeNode* root)
-{
-    if (root !=NULL)
-    {
-        printf("[%d] ", root->key);
-        preOrder(root->left);
-        preOrder(root->right);
-
-    }
-}
-
-void inOrder(TreeNode* root)
-{
-    if (root !=NULL)
-    {
-        inOrder(root->left);
-        printf("[%d] ", root->key);
-        inOrder(root->right);
-
-    }
-}
-
-void postOrder(TreeNode* root)
-{
-    if (root != NULL)
-    {
-        postOrder(root->left);
-        postOrder(root->right);
-        printf("[%d] ", root->key);
-    }
-}
 //////////큐
 typedef struct
 {
@@ -131,28 +71,18 @@ TreeNode* dequeue(QueueType* Q)
     return Q->Queue[Q->front];
 }
 
-void levelOrder(TreeNode* root)
-{
-    QueueType Q;
-    initQueue(&Q);
 
-    enqueue(&Q, root);
-    while (!isEmpty(&Q))
-    {
-        root = dequeue(&Q);
-        printf("[%d] ", root->key);
-        
-        if (root->left != NULL)// = if(root->left)
-            enqueue(&Q, root->left);
-
-        if (root->right !=NULL)
-            enqueue(&Q, root->right);
-    }
-}
 ////////////////이진탐색트리
+TreeNode* makeNode(element key, TreeNode* left, TreeNode* right)
+{
+    TreeNode* node = (TreeNode*)malloc(sizeof(TreeNode));
+    node->key = key;
+    node->left = left;
+    node->right = right;
+    return node;
+}
 TreeNode* makeNode1(element key)
 {
-
     TreeNode* node = (TreeNode*)malloc(sizeof(TreeNode));
     node->key = key;
     node->left = NULL;
@@ -244,9 +174,78 @@ int getLeafCount(TreeNode* root)
 
 }
 
+void levelOrder(TreeNode* root)
+{
+    QueueType Q;
+    initQueue(&Q);
+
+    enqueue(&Q, root);
+    while (!isEmpty(&Q))
+    {
+        root = dequeue(&Q);
+        printf("[%d] ", root->key);
+
+        if (root->left != NULL)// = if(root->left)
+            enqueue(&Q, root->left);
+
+        if (root->right != NULL)
+            enqueue(&Q, root->right);
+    }
+}
 
 
+void iterOrder(TreeNode* root)
+{
+    StackType S;
+    initStack(&S);
 
+    while (1)
+    {
+        for (; root != NULL; root = root->left)
+            push(&S, root);
+        root = pop(&S);
+
+        if (root == NULL)
+            break;
+
+        printf("[%d] ", root->key);
+
+        root = root->right;
+    }
+}
+
+//////////전후 순회
+void preOrder(TreeNode* root)
+{
+    if (root != NULL)
+    {
+        printf("[%d] ", root->key);
+        preOrder(root->left);
+        preOrder(root->right);
+
+    }
+}
+
+void inOrder(TreeNode* root)
+{
+    if (root != NULL)
+    {
+        inOrder(root->left);
+        printf("[%d] ", root->key);
+        inOrder(root->right);
+
+    }
+}
+
+void postOrder(TreeNode* root)
+{
+    if (root != NULL)
+    {
+        postOrder(root->left);
+        postOrder(root->right);
+        printf("[%d] ", root->key);
+    }
+}
 
 
 
@@ -272,15 +271,15 @@ int main()
     TreeNode* N3 = makeNode(20, N6, N7);
     TreeNode* N1 = makeNode(15, N2, N3);
     
-    
+    printf("iter\n"); iterOrder(N1); printf("\n");//반복 중위순회
     //printf("pre: "); preOrder(N1); printf("\n");// 전위 순회
-    //printf("in: "); inOrder(N1); printf("\n"); //중위순회
+    printf("in: "); inOrder(N1); printf("\n"); //중위순회
     //printf("post: "); postOrder(N1); printf("\n"); //후위순회
 
-    //iterOrder(N1);//중위순회
+    iterOrder(N1);//중위순회
     
     
-    levelOrder(N1);//레벨순회
+    //levelOrder(N1);//레벨순회
     
     //preOrder(root); printf("\n"); getchar();//전위순회
 

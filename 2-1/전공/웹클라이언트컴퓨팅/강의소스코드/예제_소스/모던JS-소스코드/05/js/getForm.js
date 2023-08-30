@@ -3,6 +3,7 @@
 		function displaySelect() {
 			let selectedText = selectMenu.options[selectMenu.selectedIndex].innerText;		
 			alert(`[${selectedText}]를 선택했습니다.`);
-		}		
+		}	
+		console.log(document.testForm.mailing)
 
 		selectMenu.onchange = displaySelect;
