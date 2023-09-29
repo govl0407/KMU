@@ -1,0 +1,3 @@
+﻿  소스.cpp
+C:\KMU\2-2\전공\알고리즘\과제\코딩과제1-정렬알고리즘\combSort(실패)\c\소스.cpp(49,23): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  c.vcxproj -> C:\KMU\2-2\전공\알고리즘\과제\코딩과제1-정렬알고리즘\combSort(실패)\c\x64\Debug\c.exe
