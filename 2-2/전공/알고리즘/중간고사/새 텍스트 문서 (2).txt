@@ -1,0 +1,84 @@
+/************
+20203152 최정민 최대팀
+3
+11 4 5 6 11 10 9 2 8 3 7 1
+5 1 2 3 4 5
+7 5 7 2 6 3 1 4
+************/
+#include <iostream>
+#define swap(a, b) {int t = a; a = b; b = t;}
+using namespace std;
+int cnt = 0;
+int MIN(int a, int b)
+{
+    int r;
+    (a > b) ? r = b : r = a;
+    return r;
+}
+int MAX(int a, int b)
+{
+    int r;
+    (a < b) ? r = b : r = a;
+    return r;
+}
+void chk(int arr[], int tmp[], int t,int tn)
+{
+    tmp[t] = tn;
+    int a = arr[t];
+    if (a == t)
+    {
+        return;
+    }
+    else
+    {
+        if (tmp[a] == tn)
+            return;
+        else
+        {
+            chk(tmp, arr, a, tn);
+        }
+    }
+}
+int teaming(int arr[], int len)
+{
+    int tmp[100] = {0};
+    int tnM = 0;
+    int tn = 0;
+    for (int i = 0; i < len; i++)
+    {
+        arr[i]--;
+    }
+    for (int i = 0; i < len; i++)
+    {
+        int t = arr[i];
+        if (tmp[i] == 0)
+            tn = tnM++;
+        else
+            tn = tmp[i];
+        chk(arr, tmp, t,tn);
+    }
+    for (int i = 0; i < len; i++)
+    {
+        cout << tmp[i] << " ";
+    }
+    cout << "\n";
+    return 1;
+}
+int main() {
+    int n;
+    cin >> n;
+    int arr[1001];
+    while (n--)
+    {
+        int num;
+        cin >> num;
+        cnt = 0;
+        for (int i = 0; i < num; i++)
+        {
+            int k;
+            cin >> k;
+            arr[i] = k;
+        }
+        cout << teaming(arr, num)<<"\n";
+    }
+}

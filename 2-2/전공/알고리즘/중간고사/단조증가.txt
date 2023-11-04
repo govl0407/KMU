@@ -1,0 +1,67 @@
+/************
+20203152 최정민 단조증가
+3
+15 5 3 4 4 2 3 3 8 7 3 5 4 5 8 9
+1 1
+5 5 4 3 2 1
+************/
+#include <iostream>
+#define swap(a, b) {int t = a; a = b; b = t;}
+using namespace std;
+int cnt = 0;
+int MIN(int a, int b)
+{
+    int r;
+    (a > b) ? r = b : r = a;
+    return r;
+}
+int MAX(int a, int b)
+{
+    int r;
+    (a < b) ? r = b : r = a;
+    return r;
+}
+int rise(int arr[], int len)
+{
+    int cnt = 1;
+    int tmp_cnt = 1;
+    for (int i = 1; i < len; i++)
+    {
+        if (arr[i] >= arr[i - 1])
+        {
+            tmp_cnt++;
+        }
+        else
+        {
+            if (tmp_cnt > cnt)
+                cnt = tmp_cnt;
+            tmp_cnt = 1;
+        }
+        if (i == len - 1)
+        {
+            if (tmp_cnt > cnt)
+                cnt = tmp_cnt;
+            tmp_cnt = 1; 
+
+        }
+    }
+    return cnt;
+}
+int main() {
+    int n;
+    cin >> n;
+    int arr[1001];
+    while (n--)
+    {
+        int num;
+        cin >> num;
+        cnt = 0;
+        for (int i = 0; i < num; i++)
+        {
+            int k;
+            cin >> k;
+            arr[i] = k;
+        }
+        cout << rise(arr, num) << "\n";
+    }
+}
